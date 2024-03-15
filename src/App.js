@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import { StringContext } from "./components/string_update/String_context";
 import './App.css';
+import StringUpdate from './components/string_update/StringUpdate';
+import { useState } from "react";
+
 
 function App() {
+  const [Name,setName] = useState('');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StringContext.Provider value={{Name,setName}}>
+        <StringUpdate/>
+        
+      </StringContext.Provider>
+      
     </div>
   );
 }
